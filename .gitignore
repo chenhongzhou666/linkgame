@@ -1,0 +1,32 @@
+# Swift/Xcode
+.build/
+*.o
+*.swiftpm/
+
+# Go
+linkgame-server
+*.exe
+*.test
+*.out
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+
+# 编译产物
+client/LinkGame.app
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 本地数据/配置
+*.db
+*.sqlite
+*.sqlite3
+.env
+.env.local
