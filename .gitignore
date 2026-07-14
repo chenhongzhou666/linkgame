@@ -30,3 +30,8 @@ client/LinkGame.app
 *.sqlite3
 .env
 .env.local
+
+# Xcode build & user data
+client/build/
+client/LinkGame.xcodeproj/xcuserdata/
+client/LinkGame.xcodeproj/project.xcworkspace/xcuserdata/

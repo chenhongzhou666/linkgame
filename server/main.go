@@ -46,6 +46,9 @@ func main() {
 	mux.HandleFunc("GET /api/daily", handlers.GetDailyLevel)
 	mux.HandleFunc("GET /api/my/stats", middleware.Auth(handlers.GetMyStats))
 	mux.HandleFunc("GET /api/my/history", middleware.Auth(handlers.GetMyHistory))
+	mux.HandleFunc("GET /api/me/widget-skins", middleware.Auth(handlers.GetWidgetSkins))
+	mux.HandleFunc("POST /api/me/widget-skins/buy", middleware.Auth(handlers.BuyWidgetSkin))
+	mux.HandleFunc("POST /api/me/widget-skins/activate", middleware.Auth(handlers.SetActiveSkin))
 
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")

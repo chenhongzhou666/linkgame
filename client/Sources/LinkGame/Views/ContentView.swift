@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var refreshStats = 0
     @State private var isDropTargeted = false
     @State private var showCurrencyLogs = false
+    @State private var showWidgetStore = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -23,6 +24,30 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     WallpaperButton()
+                    Button(action: { showWidgetStore = true }) {
+                        Image(systemName: "rectangle.3.group.fill")
+                            .font(.title3)
+                    }
+                    .buttonStyle(.plain)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 8)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.ultraThinMaterial)
+                    )
+                    .help("桌面挂件商店")
+                    Button(action: { WidgetWindowController.shared.show() }) {
+                        Image(systemName: "macwindow.and.cursorarrow")
+                            .font(.title3)
+                    }
+                    .buttonStyle(.plain)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 8)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.ultraThinMaterial)
+                    )
+                    .help("显示浮动桌面挂件")
                     Button(action: { showCurrencyLogs = true }) {
                         Label("\(user.coins)", systemImage: "dollarsign.circle.fill")
                             .font(.title3.bold())
@@ -152,6 +177,9 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showCurrencyLogs) {
             CurrencyLogView().environmentObject(auth)
+        }
+        .sheet(isPresented: $showWidgetStore) {
+            WidgetStoreView().environmentObject(auth)
         }
         .onChange(of: showGame) { closed in
             if !closed { refreshStats += 1 }

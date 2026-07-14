@@ -425,3 +425,185 @@ let sample = (melody + bass + pad) * 0.7 * masterGain
 **关键坑 3：@AppStorage 在 ObservableObject 中不可靠**
 
 `@AppStorage` 需 SwiftUI View 上下文才能正确发布变更。在 plain `ObservableObject` singleton 中，UI 绑定可能不更新。改用 `@Published` + 手动 `UserDefaults` 同步。
+
+### Xcode 构建 vs SPM 构建 — Dock 图标丢失（2026-07-14 新增）
+
+**背景：** 为支持 Widget Extension，创建了 Xcode 项目（`LinkGame.xcodeproj`），与原有 SPM（`swift build`）并行维护。
+
+**现象：** Xcode 构建的 `.app` 在 Dock 栏显示默认游戏手柄图标，不是自定义 App 图标。
+
+**根因链：**
+1. 原 SPM 构建的 `.app` 有手动创建的 `Info.plist`（含 `CFBundleIconFile = AppIcon`）和 `Contents/Resources/AppIcon.icns`
+2. Xcode 项目用 `GENERATE_INFOPLIST_FILE = YES` 时，生成的 Info.plist 不会自动包含 `CFBundleIconFile` 字段
+3. 即使添加了 `INFOPLIST_KEY_CFBundleIconFile` 键，苹果的 plist 生成也可能忽略它
+4. AppIcon.icns 没有加入 Xcode 项目的 Resources 构建阶段
+
+**修复步骤：**
+
+1. **使用手动 Info.plist**：创建 `macOS-Info.plist` 文件，显式写入 `CFBundleIconFile = AppIcon`
+2. **关闭自动生成**：`GENERATE_INFOPLIST_FILE = NO`，`INFOPLIST_FILE = macOS-Info.plist`
+3. **将 icns 加入 Resources 阶段**：在 pbxproj 中添加 `AppIcon.icns` 的 `PBXFileReference` + `PBXBuildFile` + 加入 `PBXResourcesBuildPhase`
+4. **将 icns 放在项目根目录**：`~/linkgame/client/AppIcon.icns`（从原有 `.app` bundle 中复制）
+5. **刷新缓存**：`killall Dock`
+
+**关键教训：**
+- 从 SPM 迁移到 Xcode 项目后，原来手动维护的 `.app` bundle 结构不会自动继承
+- `GENERATE_INFOPLIST_FILE = YES` 无法保证 `CFBundleIconFile` 被写入，建议使用手动 Info.plist
+- macOS 图标生效链路：`Info.plist → CFBundleIconFile → Resources/AppIcon.icns → Dock 缓存`
+- plist 任何一点配置遗漏都会导致图标 revert 到默认，且 Xcode 没有任何报错提示
+
+### Xcode 项目生成脚本（gen_xcode_project.py）
+
+位于 `~/linkgame/client/gen_xcode_project.py`。每次修改源文件列表（增删 .swift 文件）后需重新运行：
+
+```bash
+cd ~/linkgame/client && python3 gen_xcode_project.py
+```
+
+**脚本维护要点：**
+- `APP_SOURCES` dict 列出所有主 App 源文件（按子目录分组），新增文件时需在此添加
+- `WIDGET_SOURCES` dict 列出 Widget 独有源文件
+- `SHARED_SOURCES` dict 列出主 App 和 Widget 共用的源文件（如 WidgetSkin.swift、WidgetDataProvider.swift），这些文件同时编译进两个 target
+- pbxproj 中的 `path` 属性是**相对于父 group 的路径**，如果父 group 已声明 `path = Models`，则 FileReference 的 `path` 应直接写文件名而非 `Models/文件名`
+- 文件路径必须确认真实存在，不要写错子目录名
+
+### Xcode 构建 vs 实际运行 App — 部署路径陷阱（2026-07-14）
+
+**背景：** 用户平时打开的是 `~/linkgame/client/LinkGame.app`，但 Xcode 构建产物在 `~/Library/Developer/Xcode/DerivedData/.../Debug/LinkGame.app`。两个是不同的 App！
+
+**症状：**
+- `open` DerivedData 的 App → 有 Widget 按钮，但用户「重启 App」时打开的是 `~/linkgame/client/LinkGame.app` → 变回旧版 SPML 构建，按钮消失
+- 登录页 Logo 变成 🎮（`AppLogo.swift` 用 `Bundle.main.resourcePath` 找 `logo.png`，Xcode 构建没包含它）
+
+**根因：**
+1. 用户桌面快捷方式指向的是 `~/linkgame/client/LinkGame.app`（SPM 构建产物，旧编译）
+2. Xcode `xcodebuild` 输出到 DerivedData，不是用户实际打开的 App
+3. `logo.png` 没加入 Xcode 的 Resources build phase
+
+**修复：**
+1. 将 `logo.png` 加入 `gen_xcode_project.py` 的资源列表
+2. 每次 Xcode build 后用 `rsync` 将 DerivedData 产物同步到真实 App 路径
+3. `macOS-Info.plist` 中写死 `CFBundleName = 泓泓看`
+
+**一键部署命令：**
+```bash
+cd ~/linkgame/client && python3 gen_xcode_project.py && \
+xcodebuild -project LinkGame.xcodeproj -scheme LinkGame -configuration Debug -destination "platform=macOS" build CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO && \
+rsync -a --delete ~/Library/Developer/Xcode/DerivedData/LinkGame-*/Build/Products/Debug/LinkGame.app/ ~/linkgame/client/LinkGame.app/ && \
+cp ~/linkgame/server/linkgame-server ~/linkgame/client/LinkGame.app/Contents/Resources/
+```
+
+**教训：**
+- `open <DerivedData>/LinkGame.app` 只是临时测试，用户眼中的「重启 App」打开的是原路径的 App
+- 部署到用户真实使用的路径才算真正交付
+- SPM 和 Xcode 双构建维护时，忘记 `rsync` 是最常见也最隐蔽的 bug
+
+### WidgetKit Extension 无法被系统发现（2026-07-14）
+
+**症状：** Widget Extension 构建成功、plist 正确、Launch Services 已注册，但桌面右键编辑小组件里搜索不到。
+
+**排查过程：**
+1. `lsregister -dump` 确认 Widget 已被 Launch Services 发现
+2. `pluginkit` 查询却找不到我们的 Extension —— 关键差异
+3. Debug 构建的 Widget 是拆分二进制（LinkWidget + LinkWidget.debug.dylib + __preview.dylib），Apple 系统 Widget 是单个独立二进制
+4. Release 构建是单个 309KB 二进制，符合规范，但依然不被发现
+5. `spctl -avvv` 显示签名被拒绝（Developer ID not trusted）
+6. **根因：macOS Widget 需要通过 Xcode 自动签名 + provisioning profile 才能被系统信任**
+7. **macOS 26.6 Beta 的 WidgetKit Simulator 有 SIGSEGV 崩溃（Apple bug）**，`com.apple.widgetkit.simulator` 进程在加载 Widget 时直接 crash（`NSHostingView.__ivar_destroyer` → `objc_release` → bad pointer）
+
+**结论：** macOS 26.6 Beta 的 WidgetKit 系统本身不稳定，需要等 Apple 修复。不阻塞功能。
+
+### 浮动桌面挂件（Widget 替代方案）— 2026-07-14 迭代
+
+**方案：** 用 `NSWindow` + `NSHostingView` 创建无边框浮动窗口，模拟桌面 Widget 效果。
+
+**架构：**
+- `WidgetWindowController`：单例管理 NSWindow 生命周期（`DesktopWidgetView.swift`）
+- `DesktopWidgetContent`：SwiftUI 视图，挂件 UI
+- `WidgetDataProvider`：App Groups 共享 UserDefaults 读写（`group.com.chenhongzhou.linkgame`）
+- `WidgetSkin`：皮肤定义，含配色/图标/字体/图片等属性
+- `WidgetStoreView`：皮肤商店（购买+激活）
+- 后端：`widget_skin.go`（`widget_skins` JSON 字段 + `active_skin_id` + `skinPrices` 价格表）
+
+**窗口关键配置：**
+- `level = .floating` — 始终浮在最上层
+- `collectionBehavior = [.canJoinAllSpaces, .stationary]` — 跟随所有桌面空间
+- `isMovableByWindowBackground = true` — 拖拽移动
+- `isReleasedWhenClosed = false` + `animationBehavior = .none` — **防崩溃关键**
+
+**数据流：**
+1. 登录 → `AuthState.syncWidgetData()` → 从后端 `/api/me/widget-skins` 拉取 → 写入共享 UserDefaults → 发 `widgetDataChanged` 通知
+2. 购买 → 后端扣款 → `WidgetDataProvider.Writer.addPurchasedSkin()` → 写共享 UserDefaults + 通知
+3. 激活 → `WidgetDataProvider.Writer.setActiveSkin()` + 调后端 `/api/me/widget-skins/activate` 持久化
+4. 挂件收到通知 → 立即 `loadData()` 刷新（不再用 30s Timer）
+5. 退出登录 → `WidgetWindowController.hide()` + `WidgetDataProvider.clear()`
+
+### 挂件崩溃修复（2026-07-14）
+
+**现象：** App 退出时 SIGSEGV，堆栈指向 `_NSWindowTransformAnimation dealloc` → `objc_release`。
+
+**根因：** `hide()` 调用 `NSWindow.close()` 触发关闭动画，动画未完成时 window 对象被释放导致野指针。
+
+**修复：**
+```swift
+win.isReleasedWhenClosed = false    // 防止自动释放
+win.animationBehavior = .none       // 禁用关闭动画
+// hide() 里：
+win.delegate = nil                  // 先断 delegate
+win.orderOut(nil)                   // 不用 close()，直接隐藏
+window = nil
+```
+同时 `window` 属性改为 `weak var` 避免循环引用。
+
+**教训：**
+- borderless NSWindow 的 `close()` 会触发隐式动画，动画未完成时释放 window 必崩
+- 浮动面板用 `orderOut(nil)` 替代 `close()` 更安全
+- `isReleasedWhenClosed = false` 是防二次释放的兜底
+
+### 自定义图片挂件（2026-07-14）
+
+**需求：** 用户提供 PNG/JPG 图片作为挂件背景，底部显示「泓泓看」。
+
+**实现要点：**
+- `WidgetSkin` 新增 `var imageName: String? = nil` 属性（设为 `var` + 默认 nil，保持 Codable 兼容已有皮肤且不需要显式传参）
+- 图片放在 `.app/Contents/Resources/` 目录，部署时 `cp` 进去（不走 pbxproj 复杂资源管理）
+- `DesktopWidgetContent` 用 `ZStack` 叠放：图片层（`.aspectRatio(contentMode: .fill)` + 底部渐变遮罩）→ 文字层
+- 图片加载从 `Bundle.main.resourcePath` 读取，fallback 到 `Contents/Resources/`
+
+**添加新皮肤 checklist：**
+1. `WidgetSkin.swift`（两处：Sources/Widget/ 和 Sources/LinkGame/Models/ 都要改！）→ `all` 数组加 `.newSkin`，定义 `static let newSkin = WidgetSkin(...)`
+2. `server/models/widget_skin.go` → `skinPrices` map 加新 ID 和价格
+3. 如果有图片：`cp widget_xxx.png ~/linkgame/client/LinkGame.app/Contents/Resources/`
+4. 重新编译后端 `go build` + 部署
+
+**踩坑：**
+- 两个 `WidgetSkin.swift`（App 和 Widget 各自编译）必须内容一致，否则一边认识一边不认识
+- `let imageName: String?` 不带默认值会导致所有已有皮肤的初始化报 "missing argument"，必须用 `var imageName: String? = nil`
+- 后端 `skinPrices` 表缺少新皮肤 ID → 购买时报「未知的皮肤」
+
+### 挂件 UI 细节
+
+- 窗口尺寸 200×200，`.clipShape(RoundedRectangle(cornerRadius: 12))` 圆角裁剪
+- 有图片时不用 `strokeBorder`，只用 `.shadow` 做柔和投影，避免矩形边框感
+- `.fixedSize()` 防止中文文字被压缩成省略号
+- 用户昵称优先（`displayName`），没有昵称 fallback 用户名
+
+### 一键构建部署命令
+
+```bash
+cd ~/linkgame/client && python3 gen_xcode_project.py && \
+xcodebuild -project LinkGame.xcodeproj -target LinkWidget -target LinkGame -configuration Release CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO && \
+rsync -a --delete build/Release/LinkGame.app/ ~/linkgame/client/LinkGame.app/ && \
+cp ~/linkgame/server/linkgame-server ~/linkgame/client/LinkGame.app/Contents/Resources/ && \
+cp ~/linkgame/client/widget_*.png ~/linkgame/client/LinkGame.app/Contents/Resources/ 2>/dev/null; \
+pkill -f "MacOS/LinkGame" 2>/dev/null; sleep 1; open ~/linkgame/client/LinkGame.app
+```
+
+### Bundle ID 变更（2026-07-14）
+
+原 `com.linkgame.app` 在开发者账号下不可用，改为：
+- App: `com.chenhongzhou.linkgame`
+- Widget: `com.chenhongzhou.linkgame.widget`  
+- App Groups: `group.com.chenhongzhou.linkgame`
+
+涉及文件：`gen_xcode_project.py`、`LinkGame.entitlements`、`LinkWidget.entitlements`、`WidgetDataProvider.swift`（两处）、`LinkWidget.swift`

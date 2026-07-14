@@ -59,6 +59,7 @@ class AuthState: ObservableObject {
                         nickname: user.nickname ?? ""
                     )
                 }
+                syncWidgetData()
             }
         } catch {
             errorMessage = error.localizedDescription
@@ -84,6 +85,7 @@ class AuthState: ObservableObject {
                         nickname: user.nickname ?? ""
                     )
                 }
+                syncWidgetData()
             }
         } catch {
             errorMessage = error.localizedDescription
@@ -116,5 +118,27 @@ class AuthState: ObservableObject {
     func logout() {
         token = nil
         currentUser = nil
+        // 挂件是账号专属的，退出时隐藏并清数据
+        WidgetWindowController.shared.hide()
+        WidgetDataProvider.clear()
+    }
+
+    /// 登录后同步挂件数据（皮肤/金币）到共享 UserDefaults
+    func syncWidgetData() {
+        guard let user = currentUser else { return }
+        WidgetDataProvider.Writer.setUserInfo(username: user.username, nickname: user.displayName)
+        WidgetDataProvider.Writer.setCurrencyBalance(Int(user.coins))
+        // 异步从后端拉取皮肤列表
+        Task {
+            if let remote: WidgetSkinsResponse = try? await APIClient.get("/api/me/widget-skins") {
+                WidgetDataProvider.Writer.sync(
+                    currency: Int(user.coins),
+                    purchasedSkins: remote.skins,
+                    activeSkinID: remote.activeSkinID,
+                    username: user.username,
+                    nickname: user.displayName
+                )
+            }
+        }
     }
 }
