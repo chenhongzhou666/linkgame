@@ -50,6 +50,14 @@ func main() {
 	mux.HandleFunc("POST /api/me/widget-skins/buy", middleware.Auth(handlers.BuyWidgetSkin))
 	mux.HandleFunc("POST /api/me/widget-skins/activate", middleware.Auth(handlers.SetActiveSkin))
 
+	mux.HandleFunc("GET /api/battle/online", handlers.BattleOnline)
+	mux.HandleFunc("POST /api/battle/join", middleware.Auth(handlers.BattleJoin))
+	mux.HandleFunc("GET /api/battle/status", middleware.Auth(handlers.BattleStatus))
+	mux.HandleFunc("POST /api/battle/invite", middleware.Auth(handlers.BattleInvite))
+	mux.HandleFunc("POST /api/battle/respond", middleware.Auth(handlers.BattleRespond))
+	mux.HandleFunc("POST /api/battle/match", middleware.Auth(handlers.BattleMatch))
+	mux.HandleFunc("POST /api/battle/leave", middleware.Auth(handlers.BattleLeave))
+
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusNotFound)

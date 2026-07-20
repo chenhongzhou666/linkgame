@@ -23,7 +23,10 @@ struct GameHubView: View {
 
             Divider()
 
-            HStack(spacing: 16) {
+            LazyVGrid(columns: [
+                GridItem(.flexible(), spacing: 16),
+                GridItem(.flexible(), spacing: 16)
+            ], spacing: 16) {
                 ModeCard(mode: .daily,
                     isLocked: !(auth.currentUser?.isDailyUnlocked ?? false),
                     coins: auth.currentUser?.coins ?? 0,
@@ -35,12 +38,18 @@ struct GameHubView: View {
                     onStart: { select(.timed) },
                     onLeaderboard: { showLeaderboardFor = "timed" },
                     onHistory: { showHistoryFor = "timed" })
+                ModeCard(mode: .battle,
+                    showLeaderboard: false,
+                    showHistory: false,
+                    onStart: { select(.battle) },
+                    onLeaderboard: {},
+                    onHistory: {})
             }
             .padding(20)
 
             Spacer()
         }
-        .frame(minWidth: 480, minHeight: 320)
+        .frame(minWidth: 600, minHeight: 320)
         .sheet(item: $showLeaderboardFor) { levelID in
             LeaderboardView(levelID: levelID)
         }
@@ -73,7 +82,7 @@ struct GameHubView: View {
             do {
                 let resp = try await APIClient.unlockDaily()
                 if let currency = resp.currency, var user = auth.currentUser {
-                    user = User(id: user.id, username: user.username, nickname: user.nickname, email: user.email, avatar: user.avatar, currency: currency, dailyUnlocked: true, createdAt: user.createdAt)
+                    user = User(id: user.id, username: user.username, nickname: user.nickname, email: user.email, avatar: user.avatar, currency: currency, dailyUnlocked: true, trophies: user.trophies, createdAt: user.createdAt)
                     auth.currentUser = user
                 }
             } catch {
@@ -87,6 +96,8 @@ struct ModeCard: View {
     let mode: GameMode
     var isLocked: Bool = false
     var coins: Int64 = 0
+    var showLeaderboard: Bool = true
+    var showHistory: Bool = true
     let onStart: () -> Void
     let onLeaderboard: () -> Void
     let onHistory: () -> Void
@@ -129,23 +140,37 @@ struct ModeCard: View {
                 .controlSize(.small)
                 .disabled(coins < 5000)
                 .padding(.bottom, 8)
-            } else {
+            } else if showLeaderboard || showHistory {
                 HStack(spacing: 6) {
-                    Button(action: onHistory) {
-                        Text("战绩").font(.caption).frame(width: 52)
+                    if showHistory {
+                        Button(action: onHistory) {
+                            Text("战绩").font(.caption).frame(width: 52)
+                        }
+                        .buttonStyle(.bordered).controlSize(.small)
                     }
-                    .buttonStyle(.bordered).controlSize(.small)
 
-                    Button(action: onLeaderboard) {
-                        Text("排行").font(.caption).frame(width: 52)
+                    if showLeaderboard {
+                        Button(action: onLeaderboard) {
+                            Text("排行").font(.caption).frame(width: 52)
+                        }
+                        .buttonStyle(.bordered).controlSize(.small)
                     }
-                    .buttonStyle(.bordered).controlSize(.small)
 
                     Button(action: onStart) {
                         Text("开始").font(.caption).frame(width: 52)
                     }
                     .buttonStyle(.borderedProminent).tint(mode.accentColor).controlSize(.small)
                 }
+                .padding(.bottom, 8)
+            } else {
+                Button(action: onStart) {
+                    Text("开始对战")
+                        .font(.subheadline)
+                        .frame(width: 120)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(mode.accentColor)
+                .controlSize(.regular)
                 .padding(.bottom, 8)
             }
         }

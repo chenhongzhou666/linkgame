@@ -16,8 +16,9 @@ type User struct {
 	Nickname  string `json:"nickname"`
 	Email     string `json:"email"`
 	Avatar    string `json:"avatar"`
-	Currency      int64 `json:"currency"`
-	DailyUnlocked bool  `json:"daily_unlocked"`
+	Currency      int64  `json:"currency"`
+	DailyUnlocked bool   `json:"daily_unlocked"`
+	Trophies      int    `json:"trophies"`
 	Password      string `json:"-"`
 	CreatedAt string `json:"created_at"`
 }
@@ -43,9 +44,9 @@ func CreateUser(username, email, password string) (*User, error) {
 func GetUserByUsername(username string) (*User, error) {
 	u := &User{}
 	err := db.DB.QueryRow(
-		"SELECT id, username, COALESCE(email,''), COALESCE(nickname,''), COALESCE(avatar,''), COALESCE(currency,0), COALESCE(daily_unlocked,0), password, created_at FROM users WHERE username = ?",
+		"SELECT id, username, COALESCE(email,''), COALESCE(nickname,''), COALESCE(avatar,''), COALESCE(currency,0), COALESCE(daily_unlocked,0), COALESCE(trophies,0), password, created_at FROM users WHERE username = ?",
 		username,
-	).Scan(&u.ID, &u.Username, &u.Email, &u.Nickname, &u.Avatar, &u.Currency, &u.DailyUnlocked, &u.Password, &u.CreatedAt)
+	).Scan(&u.ID, &u.Username, &u.Email, &u.Nickname, &u.Avatar, &u.Currency, &u.DailyUnlocked, &u.Trophies, &u.Password, &u.CreatedAt)
 	if err == sql.ErrNoRows {
 		return nil, nil
 	}
@@ -58,9 +59,9 @@ func GetUserByUsername(username string) (*User, error) {
 func GetUserByEmail(email string) (*User, error) {
 	u := &User{}
 	err := db.DB.QueryRow(
-		"SELECT id, username, COALESCE(email,''), COALESCE(nickname,''), COALESCE(avatar,''), COALESCE(currency,0), COALESCE(daily_unlocked,0), password, created_at FROM users WHERE email = ?",
+		"SELECT id, username, COALESCE(email,''), COALESCE(nickname,''), COALESCE(avatar,''), COALESCE(currency,0), COALESCE(daily_unlocked,0), COALESCE(trophies,0), password, created_at FROM users WHERE email = ?",
 		email,
-	).Scan(&u.ID, &u.Username, &u.Email, &u.Nickname, &u.Avatar, &u.Currency, &u.DailyUnlocked, &u.Password, &u.CreatedAt)
+	).Scan(&u.ID, &u.Username, &u.Email, &u.Nickname, &u.Avatar, &u.Currency, &u.DailyUnlocked, &u.Trophies, &u.Password, &u.CreatedAt)
 	if err == sql.ErrNoRows {
 		return nil, nil
 	}
@@ -130,4 +131,39 @@ func UnlockDaily(userID int64) (int64, error) {
 
 func (u *User) CheckPassword(password string) bool {
 	return bcrypt.CompareHashAndPassword([]byte(u.Password), []byte(password)) == nil
+}
+
+func AddTrophy(userID int64) (int, error) {
+	_, err := db.DB.Exec("UPDATE users SET trophies = trophies + 1 WHERE id = ?", userID)
+	if err != nil {
+		return 0, fmt.Errorf("add trophy: %w", err)
+	}
+	var total int
+	err = db.DB.QueryRow("SELECT COALESCE(trophies, 0) FROM users WHERE id = ?", userID).Scan(&total)
+	if err != nil {
+		return 0, fmt.Errorf("get trophies: %w", err)
+	}
+	return total, nil
+}
+
+func GetUserByID(userID int64) (*User, error) {
+	u := &User{}
+	err := db.DB.QueryRow(
+		"SELECT id, username, COALESCE(email,''), COALESCE(nickname,''), COALESCE(avatar,''), COALESCE(currency,0), COALESCE(daily_unlocked,0), COALESCE(trophies,0), password, created_at FROM users WHERE id = ?",
+		userID,
+	).Scan(&u.ID, &u.Username, &u.Email, &u.Nickname, &u.Avatar, &u.Currency, &u.DailyUnlocked, &u.Trophies, &u.Password, &u.CreatedAt)
+	if err == sql.ErrNoRows {
+		return nil, nil
+	}
+	if err != nil {
+		return nil, fmt.Errorf("get user: %w", err)
+	}
+	return u, nil
+}
+
+func (u *User) NicknameOrDefault() string {
+	if u.Nickname != "" {
+		return u.Nickname
+	}
+	return u.Username
 }

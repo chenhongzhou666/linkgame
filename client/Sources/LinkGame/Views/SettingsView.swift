@@ -163,6 +163,7 @@ struct SettingsView: View {
             avatar: user?.avatar,
             currency: user?.currency,
             dailyUnlocked: user?.dailyUnlocked,
+            trophies: user?.trophies,
             createdAt: user?.createdAt
         )
     }
@@ -180,6 +181,7 @@ struct SettingsView: View {
                                         avatar: auth.currentUser?.avatar,
                                         currency: auth.currentUser?.currency,
                                         dailyUnlocked: auth.currentUser?.dailyUnlocked,
+                                        trophies: auth.currentUser?.trophies,
                                         createdAt: auth.currentUser?.createdAt)
             } catch {
                 showMsg("绑定失败: \(error.localizedDescription)", error: true)

@@ -50,6 +50,7 @@ P_WIDGET_REL     = gen()
 # Source files (main app)
 APP_SOURCES = {
     "App.swift":                ("", "App.swift"),
+    "BattleGameState.swift":    ("Game", "BattleGameState.swift"),
     "Board.swift":              ("Game", "Board.swift"),
     "GameState.swift":          ("Game", "GameState.swift"),
     "LinkEngine.swift":         ("Game", "LinkEngine.swift"),
@@ -65,6 +66,7 @@ APP_SOURCES = {
     "WallpaperManager.swift":   ("Models", "WallpaperManager.swift"),
     "APIClient.swift":          ("Network", "APIClient.swift"),
     "ServerManager.swift":      ("Network", "ServerManager.swift"),
+    "BattleWSClient.swift":     ("Network", "BattleWSClient.swift"),
     "AppBackground.swift":      ("Views", "AppBackground.swift"),
     "AppLogo.swift":            ("Views", "AppLogo.swift"),
     "AvatarView.swift":         ("Views", "AvatarView.swift"),
@@ -72,12 +74,14 @@ APP_SOURCES = {
     "ContentView.swift":        ("Views", "ContentView.swift"),
     "DinoRunnerView.swift":     ("Views", "DinoRunnerView.swift"),
     "GameHubView.swift":        ("Views", "GameHubView.swift"),
+    "BattleGameView.swift":     ("Views", "BattleGameView.swift"),
     "GameView.swift":           ("Views", "GameView.swift"),
     "HistoryView.swift":        ("Views", "HistoryView.swift"),
     "LeaderboardView.swift":    ("Views", "LeaderboardView.swift"),
     "LoginView.swift":          ("Views", "LoginView.swift"),
     "PixelArtBackground.swift": ("Views", "PixelArtBackground.swift"),
     "SettingsView.swift":       ("Views", "SettingsView.swift"),
+    "StickFigureArena.swift":   ("Views", "StickFigureArena.swift"),
     "WidgetStoreView.swift":    ("Views", "WidgetStoreView.swift"),
     "DesktopWidgetView.swift":  ("Views", "DesktopWidgetView.swift"),
 }

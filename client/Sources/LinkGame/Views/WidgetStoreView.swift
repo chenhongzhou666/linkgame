@@ -139,6 +139,7 @@ struct WidgetStoreView: View {
                         avatar: user.avatar,
                         currency: resp.currency,
                         dailyUnlocked: user.dailyUnlocked,
+                        trophies: user.trophies,
                         createdAt: user.createdAt
                     )
                     auth.currentUser = user

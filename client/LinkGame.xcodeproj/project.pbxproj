@@ -6,192 +6,204 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		64C6EA8AB9F84B2F8CBFB00F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A9F65A661B4174AE7106EF /* App.swift */; };
-		E593E5EEAD1B42FF89104A76 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83F4A78907D44F9907AA21C /* Board.swift */; };
-		05B8371630F6455184D0589D /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A37FBBEC2FA486EBF7988D9 /* GameState.swift */; };
-		BE5938E00F564D008329CD6E /* LinkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5886A6992F64D0DBBC44548 /* LinkEngine.swift */; };
-		743120CF856E432C8800F387 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA40ACE41A54B8E8A7EA48F /* AccountManager.swift */; };
-		8B78E95FC4914F3988AD2C91 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72CA37D5D1F467DBF4EF021 /* GameMode.swift */; };
-		7580DC1E8B4143388827E06A /* IconSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AA77885C544BD6A7E40273 /* IconSet.swift */; };
-		DF2968C174A241BDA5A2AF72 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82621D63D7946638D7BF95E /* Level.swift */; };
-		AD08861B95ED4DEE9A5535B4 /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8487DC17FBAB49CEBFF3F1AA /* MusicManager.swift */; };
-		26184A0A8B474550A849FDE2 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8CEADC59AE4090B744ADD7 /* Score.swift */; };
-		C3692F5C29D54AA7AD0D9332 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88D875F0EF94665ADB825BB /* Theme.swift */; };
-		109954F9D0B34A779005FEC6 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A94CB429A2A4AA59A409FD2 /* ThemeManager.swift */; };
-		C8CE5B0B4A54412F97BCA658 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0446B6C91241449096E327 /* User.swift */; };
-		0755251B58E440A595619D1D /* WallpaperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023E1679C6204A7899152544 /* WallpaperManager.swift */; };
-		9117D395BF0B45F493C62784 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41E7E578D164AF1BC2B60BF /* APIClient.swift */; };
-		6DDFBB5464B2472A98D5079B /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E1DE3A9B94C8F9929B946 /* ServerManager.swift */; };
-		E0B1292EB23648E1BDFB218C /* AppBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29AD635F6464DB990F06B4B /* AppBackground.swift */; };
-		F163BCC374EC49A78E62E84E /* AppLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8F4DA73C8B43C984412BD9 /* AppLogo.swift */; };
-		006946D05D064AC2AE5EC4AB /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0498DA7F17473A929B50F2 /* AvatarView.swift */; };
-		DED15C6A1529400188CABC87 /* ClickableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C887DE6374594AE08A512728 /* ClickableModifier.swift */; };
-		8C56DB747B1B4A2FBE891743 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDFCE86749D4E65B528BC6B /* ContentView.swift */; };
-		29AC16B49F124B03A80EC90D /* DinoRunnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758D2D08E2324792B1367DC7 /* DinoRunnerView.swift */; };
-		43832A29D8A54CE0819AB70D /* GameHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF5D1894014DBBBE769065 /* GameHubView.swift */; };
-		BCD933D3FE7A46DAB1903CD9 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72EA24D0A2844189456EE09 /* GameView.swift */; };
-		A7A913D93C074678AF25B41E /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B18DBCB599C4A2A9AA393EE /* HistoryView.swift */; };
-		F3D0A2259F1D4925BC81D365 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DF7C0EB15E437A8AD40A20 /* LeaderboardView.swift */; };
-		07F73DF8A81743B88BF890C6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AADDE1F3C3459FB41507F4 /* LoginView.swift */; };
-		EA0CEA9E642A42FBBFFA0061 /* PixelArtBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43006A745EFC4C668BCAE646 /* PixelArtBackground.swift */; };
-		FB8EE60ACF6C470BB7F69860 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3177A4C463641468ED8CA64 /* SettingsView.swift */; };
-		639CE85F64FD4B3FA2E39A29 /* WidgetStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581387EC8CBA48B9AE98E9C7 /* WidgetStoreView.swift */; };
-		868EED30511C46F0AD77045D /* DesktopWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10B4409090F463C95EAD7E5 /* DesktopWidgetView.swift */; };
-		ADFE05F4428244D091C1DEED /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8092E2DF5E645C9B7C0C65F /* WidgetBundle.swift */; };
-		25DE7C53CFF84695B075D439 /* LinkWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDF8E6F0424A3CA9E872F3 /* LinkWidget.swift */; };
-		7B4CD753F2164C2BBD806AC5 /* WidgetSkin.swift in Sources (App) */ = {isa = PBXBuildFile; fileRef = 1C8B28AD4E4948D7BA49258A /* WidgetSkin.swift */; };
-		164394766D6648F8827D59C1 /* WidgetDataProvider.swift in Sources (App) */ = {isa = PBXBuildFile; fileRef = 3809AFF102A34ECA88B180D7 /* WidgetDataProvider.swift */; };
-		79B652A1F39043E9B3240729 /* WidgetSkin.swift in Sources (Widget) */ = {isa = PBXBuildFile; fileRef = 1C8B28AD4E4948D7BA49258A /* WidgetSkin.swift */; };
-		112178FC4EBC45EB9F19B163 /* WidgetDataProvider.swift in Sources (Widget) */ = {isa = PBXBuildFile; fileRef = 3809AFF102A34ECA88B180D7 /* WidgetDataProvider.swift */; };
-		31BD538104384D52BE6348B2 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 524C4DFE51DE4626B2B844C2 /* AppIcon.icns */; };
-		8F25F01587FB4AEEB9B8D0E0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C88087BCD6A044949BB5FC59 /* logo.png */; };
-		FBE17AE0C8584C60AAD99167 /* LinkWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 56D61EBE614D4504B68C4B07 /* LinkWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		82F7011FF10B4DFD8BFF47F1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B5FE1CFFC4C64BBFC7084 /* App.swift */; };
+		A660B984A9B140C38073CBEB /* BattleGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA730DC1D84A3E86D0B4A5 /* BattleGameState.swift */; };
+		3A6E50EED3B34CFA986E8CA4 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9245A3C39D4769A6C00280 /* Board.swift */; };
+		1E9812A3FE734633B9884FF9 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086C13E4BC9D4AEA81C25530 /* GameState.swift */; };
+		8E38CA5C2D98490899125E02 /* LinkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18198CC1204437488E6BF91 /* LinkEngine.swift */; };
+		683C5CDB1C304F4EB1F99272 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4D7B8C11214226B0963BFA /* AccountManager.swift */; };
+		F430DDB5ECAD43B8968728E1 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF8E6D97FD468988C77A2B /* GameMode.swift */; };
+		D95458F5229D4F648D0D29AE /* IconSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D66D99CA8B1468DA660F740 /* IconSet.swift */; };
+		146E0B5CFFB346B78C93B30F /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888796C8ACBC4249A035F3DE /* Level.swift */; };
+		8F8FD301571F408FB64FDDB5 /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF92E72BF04C4A5BAA82049B /* MusicManager.swift */; };
+		32673B45F32A4F8B9BCB5358 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822F35EFA154474B4597C36 /* Score.swift */; };
+		59C7CB834A0543AB83FB2F54 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8673510ACA4B40968C7BB567 /* Theme.swift */; };
+		B0511A8602284BEAB5C336A5 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FEB9FF59A48F18AE480D4 /* ThemeManager.swift */; };
+		926DBE4580AE4501AB255534 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6798FD7C54F75BE67B227 /* User.swift */; };
+		CD5D4C0FD50E4003A8205C2F /* WallpaperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DFE849C39046A49B6BDB32 /* WallpaperManager.swift */; };
+		63239C37842D499C8D59FC1C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE495B3CA20545E195DFA572 /* APIClient.swift */; };
+		5226EBB3D44A4296A0EBE98B /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD563B89EA9455FA33C993F /* ServerManager.swift */; };
+		EC5A24F88FF34CE9AA8537DF /* BattleWSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED43E66D3C4E5E9099D4AC /* BattleWSClient.swift */; };
+		0B0350F94C05429E85C0BE28 /* AppBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14704C65F74B45A0616564 /* AppBackground.swift */; };
+		ED86171A80C4403299CF7FCF /* AppLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F216359D726E4F62A95F9898 /* AppLogo.swift */; };
+		D4DDBF53B2034F8BBCED0647 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B2DA2D39F5495A893AFFF6 /* AvatarView.swift */; };
+		9801933638D648B294048E30 /* ClickableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444A72DE9794D90AEEDBCA9 /* ClickableModifier.swift */; };
+		3A42E41A1DF04384BB5743F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5126618A6FC34920AD6748C2 /* ContentView.swift */; };
+		6956106F2F6240F09640854F /* DinoRunnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EAF3B533FC4DF0B9C583CA /* DinoRunnerView.swift */; };
+		445C55FF23D3498DBBEE45FF /* GameHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34F81B2C20743E4924E75AE /* GameHubView.swift */; };
+		DD30C527F6A4494690644745 /* BattleGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7118C37A22349D8B229C9FB /* BattleGameView.swift */; };
+		5F068906D6184504881D5504 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0729AD3CEEB49E2B1333943 /* GameView.swift */; };
+		C7CF59345D0945D78E0C709A /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A972ADB994356BEA7D896 /* HistoryView.swift */; };
+		8A01A67687B144229DFE8B5A /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99599B045D0C45F8958FE900 /* LeaderboardView.swift */; };
+		DE702F871D1C4C3FA61C4AAD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E8898A724C1CB3490ACF /* LoginView.swift */; };
+		CB77CFCDDC914052BB6B36F4 /* PixelArtBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02BB5E7C78A433AB8A21BC9 /* PixelArtBackground.swift */; };
+		7F09680B86A94E00A809FE95 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF874E380EDC46719A2546F5 /* SettingsView.swift */; };
+		B908013389A24882980920EB /* StickFigureArena.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A529E63B64E2099F062CA /* StickFigureArena.swift */; };
+		3DEBB30F91DA4786B81029E7 /* WidgetStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC97AED8D204A5687E5586C /* WidgetStoreView.swift */; };
+		456F63EE03F0420FB9B0B5FE /* DesktopWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2114E49A8141298FB84373 /* DesktopWidgetView.swift */; };
+		5923BF7B51A349B9BEFA590E /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F364B7C1114499B024E6BF /* WidgetBundle.swift */; };
+		91434A50E3794C6BA38513BF /* LinkWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732A6F286BB403FADF186D8 /* LinkWidget.swift */; };
+		3EE64EFB30464580B2C7467A /* WidgetSkin.swift in Sources (App) */ = {isa = PBXBuildFile; fileRef = C58DA0FE6AC24E16B9836949 /* WidgetSkin.swift */; };
+		D461B8B523FC4E03A726E74B /* WidgetDataProvider.swift in Sources (App) */ = {isa = PBXBuildFile; fileRef = DD7B31922FA6460591353B0D /* WidgetDataProvider.swift */; };
+		1A3813C82EE74A0397422B49 /* WidgetSkin.swift in Sources (Widget) */ = {isa = PBXBuildFile; fileRef = C58DA0FE6AC24E16B9836949 /* WidgetSkin.swift */; };
+		609F57820D8849DB9F4078D9 /* WidgetDataProvider.swift in Sources (Widget) */ = {isa = PBXBuildFile; fileRef = DD7B31922FA6460591353B0D /* WidgetDataProvider.swift */; };
+		7A6BB147074E421887E8C489 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 06E18597CEBE4FDAAD72BC55 /* AppIcon.icns */; };
+		4BCA8FEF4D374E4EAF478E32 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 361CA546134C49728B8C0ED4 /* logo.png */; };
+		9ACE86994C1243D9A9DB6EF4 /* LinkWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 65AAD6E4C3D34621B3F2B752 /* LinkWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0CA1E8041E674464BB5AC535 /* LinkGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		56D61EBE614D4504B68C4B07 /* LinkWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LinkWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		62A9F65A661B4174AE7106EF /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App.swift"; sourceTree = "<group>"; };
-		C83F4A78907D44F9907AA21C /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Board.swift"; sourceTree = "<group>"; };
-		2A37FBBEC2FA486EBF7988D9 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameState.swift"; sourceTree = "<group>"; };
-		A5886A6992F64D0DBBC44548 /* LinkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkEngine.swift"; sourceTree = "<group>"; };
-		4EA40ACE41A54B8E8A7EA48F /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountManager.swift"; sourceTree = "<group>"; };
-		A72CA37D5D1F467DBF4EF021 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameMode.swift"; sourceTree = "<group>"; };
-		75AA77885C544BD6A7E40273 /* IconSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IconSet.swift"; sourceTree = "<group>"; };
-		D82621D63D7946638D7BF95E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level.swift"; sourceTree = "<group>"; };
-		8487DC17FBAB49CEBFF3F1AA /* MusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicManager.swift"; sourceTree = "<group>"; };
-		9C8CEADC59AE4090B744ADD7 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score.swift"; sourceTree = "<group>"; };
-		F88D875F0EF94665ADB825BB /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme.swift"; sourceTree = "<group>"; };
-		2A94CB429A2A4AA59A409FD2 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ThemeManager.swift"; sourceTree = "<group>"; };
-		0B0446B6C91241449096E327 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User.swift"; sourceTree = "<group>"; };
-		023E1679C6204A7899152544 /* WallpaperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WallpaperManager.swift"; sourceTree = "<group>"; };
-		C41E7E578D164AF1BC2B60BF /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIClient.swift"; sourceTree = "<group>"; };
-		7E6E1DE3A9B94C8F9929B946 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerManager.swift"; sourceTree = "<group>"; };
-		A29AD635F6464DB990F06B4B /* AppBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppBackground.swift"; sourceTree = "<group>"; };
-		AF8F4DA73C8B43C984412BD9 /* AppLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppLogo.swift"; sourceTree = "<group>"; };
-		2E0498DA7F17473A929B50F2 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AvatarView.swift"; sourceTree = "<group>"; };
-		C887DE6374594AE08A512728 /* ClickableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClickableModifier.swift"; sourceTree = "<group>"; };
-		CDDFCE86749D4E65B528BC6B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView.swift"; sourceTree = "<group>"; };
-		758D2D08E2324792B1367DC7 /* DinoRunnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DinoRunnerView.swift"; sourceTree = "<group>"; };
-		EDEF5D1894014DBBBE769065 /* GameHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameHubView.swift"; sourceTree = "<group>"; };
-		F72EA24D0A2844189456EE09 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameView.swift"; sourceTree = "<group>"; };
-		5B18DBCB599C4A2A9AA393EE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryView.swift"; sourceTree = "<group>"; };
-		71DF7C0EB15E437A8AD40A20 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeaderboardView.swift"; sourceTree = "<group>"; };
-		F7AADDE1F3C3459FB41507F4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView.swift"; sourceTree = "<group>"; };
-		43006A745EFC4C668BCAE646 /* PixelArtBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PixelArtBackground.swift"; sourceTree = "<group>"; };
-		A3177A4C463641468ED8CA64 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView.swift"; sourceTree = "<group>"; };
-		581387EC8CBA48B9AE98E9C7 /* WidgetStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetStoreView.swift"; sourceTree = "<group>"; };
-		C10B4409090F463C95EAD7E5 /* DesktopWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesktopWidgetView.swift"; sourceTree = "<group>"; };
-		F8092E2DF5E645C9B7C0C65F /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetBundle.swift"; sourceTree = "<group>"; };
-		3DEDF8E6F0424A3CA9E872F3 /* LinkWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkWidget.swift"; sourceTree = "<group>"; };
-		1C8B28AD4E4948D7BA49258A /* WidgetSkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetSkin.swift"; sourceTree = "<group>"; };
-		3809AFF102A34ECA88B180D7 /* WidgetDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetDataProvider.swift"; sourceTree = "<group>"; };
-		B56577FCE7174A74947E57AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		524C4DFE51DE4626B2B844C2 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
-		C88087BCD6A044949BB5FC59 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		3A9B733132184F9DB54BF5F4 /* macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = macOS-Info.plist; sourceTree = "<group>"; };
+		F2A26D0123A246C6A9BA5E89 /* LinkGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65AAD6E4C3D34621B3F2B752 /* LinkWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LinkWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D3B5FE1CFFC4C64BBFC7084 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App.swift"; sourceTree = "<group>"; };
+		C4DA730DC1D84A3E86D0B4A5 /* BattleGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BattleGameState.swift"; sourceTree = "<group>"; };
+		2E9245A3C39D4769A6C00280 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Board.swift"; sourceTree = "<group>"; };
+		086C13E4BC9D4AEA81C25530 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameState.swift"; sourceTree = "<group>"; };
+		C18198CC1204437488E6BF91 /* LinkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkEngine.swift"; sourceTree = "<group>"; };
+		6D4D7B8C11214226B0963BFA /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountManager.swift"; sourceTree = "<group>"; };
+		AEDF8E6D97FD468988C77A2B /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameMode.swift"; sourceTree = "<group>"; };
+		9D66D99CA8B1468DA660F740 /* IconSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IconSet.swift"; sourceTree = "<group>"; };
+		888796C8ACBC4249A035F3DE /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level.swift"; sourceTree = "<group>"; };
+		FF92E72BF04C4A5BAA82049B /* MusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicManager.swift"; sourceTree = "<group>"; };
+		0822F35EFA154474B4597C36 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score.swift"; sourceTree = "<group>"; };
+		8673510ACA4B40968C7BB567 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme.swift"; sourceTree = "<group>"; };
+		0D4FEB9FF59A48F18AE480D4 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ThemeManager.swift"; sourceTree = "<group>"; };
+		D8F6798FD7C54F75BE67B227 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User.swift"; sourceTree = "<group>"; };
+		00DFE849C39046A49B6BDB32 /* WallpaperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WallpaperManager.swift"; sourceTree = "<group>"; };
+		AE495B3CA20545E195DFA572 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIClient.swift"; sourceTree = "<group>"; };
+		FCD563B89EA9455FA33C993F /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerManager.swift"; sourceTree = "<group>"; };
+		2EED43E66D3C4E5E9099D4AC /* BattleWSClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BattleWSClient.swift"; sourceTree = "<group>"; };
+		DD14704C65F74B45A0616564 /* AppBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppBackground.swift"; sourceTree = "<group>"; };
+		F216359D726E4F62A95F9898 /* AppLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppLogo.swift"; sourceTree = "<group>"; };
+		64B2DA2D39F5495A893AFFF6 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AvatarView.swift"; sourceTree = "<group>"; };
+		E444A72DE9794D90AEEDBCA9 /* ClickableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClickableModifier.swift"; sourceTree = "<group>"; };
+		5126618A6FC34920AD6748C2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView.swift"; sourceTree = "<group>"; };
+		03EAF3B533FC4DF0B9C583CA /* DinoRunnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DinoRunnerView.swift"; sourceTree = "<group>"; };
+		E34F81B2C20743E4924E75AE /* GameHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameHubView.swift"; sourceTree = "<group>"; };
+		D7118C37A22349D8B229C9FB /* BattleGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BattleGameView.swift"; sourceTree = "<group>"; };
+		D0729AD3CEEB49E2B1333943 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameView.swift"; sourceTree = "<group>"; };
+		155A972ADB994356BEA7D896 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryView.swift"; sourceTree = "<group>"; };
+		99599B045D0C45F8958FE900 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeaderboardView.swift"; sourceTree = "<group>"; };
+		A1F6E8898A724C1CB3490ACF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView.swift"; sourceTree = "<group>"; };
+		F02BB5E7C78A433AB8A21BC9 /* PixelArtBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PixelArtBackground.swift"; sourceTree = "<group>"; };
+		CF874E380EDC46719A2546F5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView.swift"; sourceTree = "<group>"; };
+		165A529E63B64E2099F062CA /* StickFigureArena.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StickFigureArena.swift"; sourceTree = "<group>"; };
+		6DC97AED8D204A5687E5586C /* WidgetStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetStoreView.swift"; sourceTree = "<group>"; };
+		5C2114E49A8141298FB84373 /* DesktopWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesktopWidgetView.swift"; sourceTree = "<group>"; };
+		C9F364B7C1114499B024E6BF /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetBundle.swift"; sourceTree = "<group>"; };
+		C732A6F286BB403FADF186D8 /* LinkWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkWidget.swift"; sourceTree = "<group>"; };
+		C58DA0FE6AC24E16B9836949 /* WidgetSkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetSkin.swift"; sourceTree = "<group>"; };
+		DD7B31922FA6460591353B0D /* WidgetDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetDataProvider.swift"; sourceTree = "<group>"; };
+		12E90B91BC594217A21F8B7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06E18597CEBE4FDAAD72BC55 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		361CA546134C49728B8C0ED4 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		AED183D0E18741C8B5957432 /* macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = macOS-Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		DA05A57D3D094EDFA0A3734C = {
+		81C3CFB6974A422895328FE5 = {
 			isa = PBXGroup;
 			children = (
-				779C42CCFE804763954138ED /* LinkGame */,
-				68570850E16B4CAB971FC792 /* Widget */,
-				524C4DFE51DE4626B2B844C2 /* AppIcon.icns */,
-				C88087BCD6A044949BB5FC59 /* logo.png */,
-				3A9B733132184F9DB54BF5F4 /* macOS-Info.plist */,
-				A34962ADE69A42C8B0A7340D /* Products */,
+				E899E412E73D41D5A99E9697 /* LinkGame */,
+				BF9C1D612CB045D081F2E373 /* Widget */,
+				06E18597CEBE4FDAAD72BC55 /* AppIcon.icns */,
+				361CA546134C49728B8C0ED4 /* logo.png */,
+				AED183D0E18741C8B5957432 /* macOS-Info.plist */,
+				E634E555EBB54A4BA3BED901 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		779C42CCFE804763954138ED = {
+		E899E412E73D41D5A99E9697 = {
 			isa = PBXGroup;
 			children = (
-				62A9F65A661B4174AE7106EF /* App.swift */,
-				D9778C1E22CE46139D029EB6 /* Game */,
-				74B77A5C827E4809BB1487BF /* Models */,
-				15ED087547004A17A9DC57FC /* Network */,
-				4D244425C1544E6BBD34E273 /* Views */,
+				8D3B5FE1CFFC4C64BBFC7084 /* App.swift */,
+				1057D16ACF19450AB2BF341E /* Game */,
+				1F1F78FE0FD84CC68EBA0BA1 /* Models */,
+				D05247E42C164420981C3936 /* Network */,
+				45522C10AC6C4D1F813C573C /* Views */,
 			);
 			path = Sources/LinkGame;
 			sourceTree = "<group>";
 		};
-		D9778C1E22CE46139D029EB6 = {
+		1057D16ACF19450AB2BF341E = {
 			isa = PBXGroup;
 			children = (
-				C83F4A78907D44F9907AA21C /* Board.swift */,
-				2A37FBBEC2FA486EBF7988D9 /* GameState.swift */,
-				A5886A6992F64D0DBBC44548 /* LinkEngine.swift */,
+				C4DA730DC1D84A3E86D0B4A5 /* BattleGameState.swift */,
+				2E9245A3C39D4769A6C00280 /* Board.swift */,
+				086C13E4BC9D4AEA81C25530 /* GameState.swift */,
+				C18198CC1204437488E6BF91 /* LinkEngine.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
 		};
-		74B77A5C827E4809BB1487BF = {
+		1F1F78FE0FD84CC68EBA0BA1 = {
 			isa = PBXGroup;
 			children = (
-				4EA40ACE41A54B8E8A7EA48F /* AccountManager.swift */,
-				A72CA37D5D1F467DBF4EF021 /* GameMode.swift */,
-				75AA77885C544BD6A7E40273 /* IconSet.swift */,
-				D82621D63D7946638D7BF95E /* Level.swift */,
-				8487DC17FBAB49CEBFF3F1AA /* MusicManager.swift */,
-				9C8CEADC59AE4090B744ADD7 /* Score.swift */,
-				F88D875F0EF94665ADB825BB /* Theme.swift */,
-				2A94CB429A2A4AA59A409FD2 /* ThemeManager.swift */,
-				0B0446B6C91241449096E327 /* User.swift */,
-				023E1679C6204A7899152544 /* WallpaperManager.swift */,
+				6D4D7B8C11214226B0963BFA /* AccountManager.swift */,
+				AEDF8E6D97FD468988C77A2B /* GameMode.swift */,
+				9D66D99CA8B1468DA660F740 /* IconSet.swift */,
+				888796C8ACBC4249A035F3DE /* Level.swift */,
+				FF92E72BF04C4A5BAA82049B /* MusicManager.swift */,
+				0822F35EFA154474B4597C36 /* Score.swift */,
+				8673510ACA4B40968C7BB567 /* Theme.swift */,
+				0D4FEB9FF59A48F18AE480D4 /* ThemeManager.swift */,
+				D8F6798FD7C54F75BE67B227 /* User.swift */,
+				00DFE849C39046A49B6BDB32 /* WallpaperManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		15ED087547004A17A9DC57FC = {
+		D05247E42C164420981C3936 = {
 			isa = PBXGroup;
 			children = (
-				C41E7E578D164AF1BC2B60BF /* APIClient.swift */,
-				7E6E1DE3A9B94C8F9929B946 /* ServerManager.swift */,
+				AE495B3CA20545E195DFA572 /* APIClient.swift */,
+				FCD563B89EA9455FA33C993F /* ServerManager.swift */,
+				2EED43E66D3C4E5E9099D4AC /* BattleWSClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		4D244425C1544E6BBD34E273 = {
+		45522C10AC6C4D1F813C573C = {
 			isa = PBXGroup;
 			children = (
-				A29AD635F6464DB990F06B4B /* AppBackground.swift */,
-				AF8F4DA73C8B43C984412BD9 /* AppLogo.swift */,
-				2E0498DA7F17473A929B50F2 /* AvatarView.swift */,
-				C887DE6374594AE08A512728 /* ClickableModifier.swift */,
-				CDDFCE86749D4E65B528BC6B /* ContentView.swift */,
-				758D2D08E2324792B1367DC7 /* DinoRunnerView.swift */,
-				EDEF5D1894014DBBBE769065 /* GameHubView.swift */,
-				F72EA24D0A2844189456EE09 /* GameView.swift */,
-				5B18DBCB599C4A2A9AA393EE /* HistoryView.swift */,
-				71DF7C0EB15E437A8AD40A20 /* LeaderboardView.swift */,
-				F7AADDE1F3C3459FB41507F4 /* LoginView.swift */,
-				43006A745EFC4C668BCAE646 /* PixelArtBackground.swift */,
-				A3177A4C463641468ED8CA64 /* SettingsView.swift */,
-				581387EC8CBA48B9AE98E9C7 /* WidgetStoreView.swift */,
-				C10B4409090F463C95EAD7E5 /* DesktopWidgetView.swift */,
+				DD14704C65F74B45A0616564 /* AppBackground.swift */,
+				F216359D726E4F62A95F9898 /* AppLogo.swift */,
+				64B2DA2D39F5495A893AFFF6 /* AvatarView.swift */,
+				E444A72DE9794D90AEEDBCA9 /* ClickableModifier.swift */,
+				5126618A6FC34920AD6748C2 /* ContentView.swift */,
+				03EAF3B533FC4DF0B9C583CA /* DinoRunnerView.swift */,
+				E34F81B2C20743E4924E75AE /* GameHubView.swift */,
+				D7118C37A22349D8B229C9FB /* BattleGameView.swift */,
+				D0729AD3CEEB49E2B1333943 /* GameView.swift */,
+				155A972ADB994356BEA7D896 /* HistoryView.swift */,
+				99599B045D0C45F8958FE900 /* LeaderboardView.swift */,
+				A1F6E8898A724C1CB3490ACF /* LoginView.swift */,
+				F02BB5E7C78A433AB8A21BC9 /* PixelArtBackground.swift */,
+				CF874E380EDC46719A2546F5 /* SettingsView.swift */,
+				165A529E63B64E2099F062CA /* StickFigureArena.swift */,
+				6DC97AED8D204A5687E5586C /* WidgetStoreView.swift */,
+				5C2114E49A8141298FB84373 /* DesktopWidgetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		68570850E16B4CAB971FC792 = {
+		BF9C1D612CB045D081F2E373 = {
 			isa = PBXGroup;
 			children = (
-				F8092E2DF5E645C9B7C0C65F /* WidgetBundle.swift */,
-				3DEDF8E6F0424A3CA9E872F3 /* LinkWidget.swift */,
-				1C8B28AD4E4948D7BA49258A /* WidgetSkin.swift */,
-				3809AFF102A34ECA88B180D7 /* WidgetDataProvider.swift */,
-				B56577FCE7174A74947E57AB /* Info.plist */,
+				C9F364B7C1114499B024E6BF /* WidgetBundle.swift */,
+				C732A6F286BB403FADF186D8 /* LinkWidget.swift */,
+				C58DA0FE6AC24E16B9836949 /* WidgetSkin.swift */,
+				DD7B31922FA6460591353B0D /* WidgetDataProvider.swift */,
+				12E90B91BC594217A21F8B7F /* Info.plist */,
 			);
 			path = Sources/Widget;
 			sourceTree = "<group>";
 		};
-		A34962ADE69A42C8B0A7340D = {
+		E634E555EBB54A4BA3BED901 = {
 			isa = PBXGroup;
 			children = (
-				0CA1E8041E674464BB5AC535 /* LinkGame.app */,
-				56D61EBE614D4504B68C4B07 /* LinkWidget.appex */,
+				F2A26D0123A246C6A9BA5E89 /* LinkGame.app */,
+				65AAD6E4C3D34621B3F2B752 /* LinkWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,128 +211,132 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		55937F2F74414D5598EF4690 /* LinkGame */ = {
+		ED3D3F972B5F4A038E58E860 /* LinkGame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B6AE14BF5AD048B99F69A2C9 /* Build configuration list for PBXNativeTarget "LinkGame" */;
+			buildConfigurationList = D45D65222FE040089862BAB7 /* Build configuration list for PBXNativeTarget "LinkGame" */;
 			buildPhases = (
-				E76420489A004C2E896A4DB3 /* Sources */,
-				45054215F44947269844AB89 /* Resources */,
-				C6663DA0AFAA4973A69B5E31 /* Embed App Extensions */,
+				0D0BA242CA124AEFBF12B6AF /* Sources */,
+				570FC2D6C5924B299B1512EF /* Resources */,
+				26176EFA0E524BCAB632FDB5 /* Embed App Extensions */,
 			);
 			buildRules = ();
 			dependencies = (
-				B356356C9BAC472D895D3BA0 /* PBXTargetDependency */,
+				BE2F8C0EA24A4CC99DF8590C /* PBXTargetDependency */,
 			);
 			name = LinkGame;
 			productName = LinkGame;
-			productReference = 0CA1E8041E674464BB5AC535 /* LinkGame.app */;
+			productReference = F2A26D0123A246C6A9BA5E89 /* LinkGame.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0C5E503257C54E79AAA50B7E /* LinkWidget */ = {
+		81FCFC1806884BE3933B76D5 /* LinkWidget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1EBBE617EDF74F3EABD4509E /* Build configuration list for PBXNativeTarget "LinkWidget" */;
+			buildConfigurationList = 1750D73A54A842F2849C7DF6 /* Build configuration list for PBXNativeTarget "LinkWidget" */;
 			buildPhases = (
-				E4B02A60377D43909DAF97CC /* Sources */,
-				BD3A2BB367D44CE9B0E30A3B /* Resources */,
+				C1F690431EC64F59A3F07AFF /* Sources */,
+				45165216F68D4DAB90C435A7 /* Resources */,
 			);
 			buildRules = ();
 			dependencies = ();
 			name = LinkWidget;
 			productName = LinkWidget;
-			productReference = 56D61EBE614D4504B68C4B07 /* LinkWidget.appex */;
+			productReference = 65AAD6E4C3D34621B3F2B752 /* LinkWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		89E09CE2A2EA4EA48856AFB6 /* Project object */ = {
+		7ECE5D92D069400EA54C54C5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 			};
-			buildConfigurationList = A2B60A4B96B846859457191C /* Build configuration list for PBXProject "LinkGame" */;
+			buildConfigurationList = 9EB0C731D51F40A6AD280D8C /* Build configuration list for PBXProject "LinkGame" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (en, Base, "zh-Hans");
-			mainGroup = DA05A57D3D094EDFA0A3734C;
-			productRefGroup = A34962ADE69A42C8B0A7340D /* Products */;
+			mainGroup = 81C3CFB6974A422895328FE5;
+			productRefGroup = E634E555EBB54A4BA3BED901 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				55937F2F74414D5598EF4690 /* LinkGame */,
-				0C5E503257C54E79AAA50B7E /* LinkWidget */,
+				ED3D3F972B5F4A038E58E860 /* LinkGame */,
+				81FCFC1806884BE3933B76D5 /* LinkWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E76420489A004C2E896A4DB3 /* Sources */ = {
+		0D0BA242CA124AEFBF12B6AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64C6EA8AB9F84B2F8CBFB00F /* App.swift in Sources */,
-				E593E5EEAD1B42FF89104A76 /* Board.swift in Sources */,
-				05B8371630F6455184D0589D /* GameState.swift in Sources */,
-				BE5938E00F564D008329CD6E /* LinkEngine.swift in Sources */,
-				743120CF856E432C8800F387 /* AccountManager.swift in Sources */,
-				8B78E95FC4914F3988AD2C91 /* GameMode.swift in Sources */,
-				7580DC1E8B4143388827E06A /* IconSet.swift in Sources */,
-				DF2968C174A241BDA5A2AF72 /* Level.swift in Sources */,
-				AD08861B95ED4DEE9A5535B4 /* MusicManager.swift in Sources */,
-				26184A0A8B474550A849FDE2 /* Score.swift in Sources */,
-				C3692F5C29D54AA7AD0D9332 /* Theme.swift in Sources */,
-				109954F9D0B34A779005FEC6 /* ThemeManager.swift in Sources */,
-				C8CE5B0B4A54412F97BCA658 /* User.swift in Sources */,
-				0755251B58E440A595619D1D /* WallpaperManager.swift in Sources */,
-				9117D395BF0B45F493C62784 /* APIClient.swift in Sources */,
-				6DDFBB5464B2472A98D5079B /* ServerManager.swift in Sources */,
-				E0B1292EB23648E1BDFB218C /* AppBackground.swift in Sources */,
-				F163BCC374EC49A78E62E84E /* AppLogo.swift in Sources */,
-				006946D05D064AC2AE5EC4AB /* AvatarView.swift in Sources */,
-				DED15C6A1529400188CABC87 /* ClickableModifier.swift in Sources */,
-				8C56DB747B1B4A2FBE891743 /* ContentView.swift in Sources */,
-				29AC16B49F124B03A80EC90D /* DinoRunnerView.swift in Sources */,
-				43832A29D8A54CE0819AB70D /* GameHubView.swift in Sources */,
-				BCD933D3FE7A46DAB1903CD9 /* GameView.swift in Sources */,
-				A7A913D93C074678AF25B41E /* HistoryView.swift in Sources */,
-				F3D0A2259F1D4925BC81D365 /* LeaderboardView.swift in Sources */,
-				07F73DF8A81743B88BF890C6 /* LoginView.swift in Sources */,
-				EA0CEA9E642A42FBBFFA0061 /* PixelArtBackground.swift in Sources */,
-				FB8EE60ACF6C470BB7F69860 /* SettingsView.swift in Sources */,
-				639CE85F64FD4B3FA2E39A29 /* WidgetStoreView.swift in Sources */,
-				868EED30511C46F0AD77045D /* DesktopWidgetView.swift in Sources */,
-				7B4CD753F2164C2BBD806AC5 /* WidgetSkin.swift in Sources */,
-				164394766D6648F8827D59C1 /* WidgetDataProvider.swift in Sources */,
+				82F7011FF10B4DFD8BFF47F1 /* App.swift in Sources */,
+				A660B984A9B140C38073CBEB /* BattleGameState.swift in Sources */,
+				3A6E50EED3B34CFA986E8CA4 /* Board.swift in Sources */,
+				1E9812A3FE734633B9884FF9 /* GameState.swift in Sources */,
+				8E38CA5C2D98490899125E02 /* LinkEngine.swift in Sources */,
+				683C5CDB1C304F4EB1F99272 /* AccountManager.swift in Sources */,
+				F430DDB5ECAD43B8968728E1 /* GameMode.swift in Sources */,
+				D95458F5229D4F648D0D29AE /* IconSet.swift in Sources */,
+				146E0B5CFFB346B78C93B30F /* Level.swift in Sources */,
+				8F8FD301571F408FB64FDDB5 /* MusicManager.swift in Sources */,
+				32673B45F32A4F8B9BCB5358 /* Score.swift in Sources */,
+				59C7CB834A0543AB83FB2F54 /* Theme.swift in Sources */,
+				B0511A8602284BEAB5C336A5 /* ThemeManager.swift in Sources */,
+				926DBE4580AE4501AB255534 /* User.swift in Sources */,
+				CD5D4C0FD50E4003A8205C2F /* WallpaperManager.swift in Sources */,
+				63239C37842D499C8D59FC1C /* APIClient.swift in Sources */,
+				5226EBB3D44A4296A0EBE98B /* ServerManager.swift in Sources */,
+				EC5A24F88FF34CE9AA8537DF /* BattleWSClient.swift in Sources */,
+				0B0350F94C05429E85C0BE28 /* AppBackground.swift in Sources */,
+				ED86171A80C4403299CF7FCF /* AppLogo.swift in Sources */,
+				D4DDBF53B2034F8BBCED0647 /* AvatarView.swift in Sources */,
+				9801933638D648B294048E30 /* ClickableModifier.swift in Sources */,
+				3A42E41A1DF04384BB5743F1 /* ContentView.swift in Sources */,
+				6956106F2F6240F09640854F /* DinoRunnerView.swift in Sources */,
+				445C55FF23D3498DBBEE45FF /* GameHubView.swift in Sources */,
+				DD30C527F6A4494690644745 /* BattleGameView.swift in Sources */,
+				5F068906D6184504881D5504 /* GameView.swift in Sources */,
+				C7CF59345D0945D78E0C709A /* HistoryView.swift in Sources */,
+				8A01A67687B144229DFE8B5A /* LeaderboardView.swift in Sources */,
+				DE702F871D1C4C3FA61C4AAD /* LoginView.swift in Sources */,
+				CB77CFCDDC914052BB6B36F4 /* PixelArtBackground.swift in Sources */,
+				7F09680B86A94E00A809FE95 /* SettingsView.swift in Sources */,
+				B908013389A24882980920EB /* StickFigureArena.swift in Sources */,
+				3DEBB30F91DA4786B81029E7 /* WidgetStoreView.swift in Sources */,
+				456F63EE03F0420FB9B0B5FE /* DesktopWidgetView.swift in Sources */,
+				3EE64EFB30464580B2C7467A /* WidgetSkin.swift in Sources */,
+				D461B8B523FC4E03A726E74B /* WidgetDataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E4B02A60377D43909DAF97CC /* Sources */ = {
+		C1F690431EC64F59A3F07AFF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADFE05F4428244D091C1DEED /* WidgetBundle.swift in Sources */,
-				25DE7C53CFF84695B075D439 /* LinkWidget.swift in Sources */,
-				79B652A1F39043E9B3240729 /* WidgetSkin.swift in Sources */,
-				112178FC4EBC45EB9F19B163 /* WidgetDataProvider.swift in Sources */,
+				5923BF7B51A349B9BEFA590E /* WidgetBundle.swift in Sources */,
+				91434A50E3794C6BA38513BF /* LinkWidget.swift in Sources */,
+				1A3813C82EE74A0397422B49 /* WidgetSkin.swift in Sources */,
+				609F57820D8849DB9F4078D9 /* WidgetDataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXResourcesBuildPhase section */
-		45054215F44947269844AB89 /* Resources */ = {
+		570FC2D6C5924B299B1512EF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31BD538104384D52BE6348B2 /* AppIcon.icns in Resources */,
-				8F25F01587FB4AEEB9B8D0E0 /* logo.png in Resources */,
+				7A6BB147074E421887E8C489 /* AppIcon.icns in Resources */,
+				4BCA8FEF4D374E4EAF478E32 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD3A2BB367D44CE9B0E30A3B /* Resources */ = {
+		45165216F68D4DAB90C435A7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = ();
@@ -329,20 +345,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C6663DA0AFAA4973A69B5E31 /* Embed App Extensions */ = {
+		26176EFA0E524BCAB632FDB5 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				FBE17AE0C8584C60AAD99167 /* LinkWidget.appex in Embed App Extensions */,
+				9ACE86994C1243D9A9DB6EF4 /* LinkWidget.appex in Embed App Extensions */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		AC864523ACE44E839E109D64 /* Debug */ = {
+		6D74B98366AF4726BEAE1CB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -370,7 +386,7 @@
 			};
 			name = Debug;
 		};
-		C894FA65C68343729EF80BE9 /* Release */ = {
+		3F5849D08F5C439095977352 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -396,7 +412,7 @@
 			};
 			name = Release;
 		};
-		6B6E6F44461D4B95B49CD2E1 /* Debug */ = {
+		07C6A7F21E4440339FBF3643 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -416,7 +432,7 @@
 			};
 			name = Debug;
 		};
-		3B871242550D468C835C79F6 /* Release */ = {
+		2677B4C538B44534AF7E152D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -436,7 +452,7 @@
 			};
 			name = Release;
 		};
-		E51F7012EAD848388325DD53 /* Debug */ = {
+		A93F2DE2939A41CEB81F0711 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -455,7 +471,7 @@
 			};
 			name = Debug;
 		};
-		E5893C34CFBD4716BD32C03F /* Release */ = {
+		BA60F483DEC146079727DF41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -477,25 +493,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A2B60A4B96B846859457191C /* Build configuration list for PBXProject "LinkGame" */ = {
+		9EB0C731D51F40A6AD280D8C /* Build configuration list for PBXProject "LinkGame" */ = {
 			isa = XCConfigurationList;
-			buildConfigurations = (AC864523ACE44E839E109D64 /* Debug */, C894FA65C68343729EF80BE9 /* Release */);
+			buildConfigurations = (6D74B98366AF4726BEAE1CB9 /* Debug */, 3F5849D08F5C439095977352 /* Release */);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B6AE14BF5AD048B99F69A2C9 /* Build configuration list for PBXNativeTarget "LinkGame" */ = {
+		D45D65222FE040089862BAB7 /* Build configuration list for PBXNativeTarget "LinkGame" */ = {
 			isa = XCConfigurationList;
-			buildConfigurations = (6B6E6F44461D4B95B49CD2E1 /* Debug */, 3B871242550D468C835C79F6 /* Release */);
+			buildConfigurations = (07C6A7F21E4440339FBF3643 /* Debug */, 2677B4C538B44534AF7E152D /* Release */);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1EBBE617EDF74F3EABD4509E /* Build configuration list for PBXNativeTarget "LinkWidget" */ = {
+		1750D73A54A842F2849C7DF6 /* Build configuration list for PBXNativeTarget "LinkWidget" */ = {
 			isa = XCConfigurationList;
-			buildConfigurations = (E51F7012EAD848388325DD53 /* Debug */, E5893C34CFBD4716BD32C03F /* Release */);
+			buildConfigurations = (A93F2DE2939A41CEB81F0711 /* Debug */, BA60F483DEC146079727DF41 /* Release */);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 89E09CE2A2EA4EA48856AFB6 /* Project object */;
+	rootObject = 7ECE5D92D069400EA54C54C5 /* Project object */;
 }

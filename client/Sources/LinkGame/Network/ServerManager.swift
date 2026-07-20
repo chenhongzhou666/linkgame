@@ -20,7 +20,30 @@ class ServerManager: ObservableObject {
 
         status = .starting
 
-        // Locate server binary: try Resources/, then sibling dir, then dev path
+        // 先检查服务器是否已在运行（例如被另一个 App 实例启动）
+        checkExistingServer { [weak self] alreadyRunning in
+            guard let self = self else { return }
+            if alreadyRunning {
+                self.status = .running
+                return
+            }
+            self.launchServer()
+        }
+    }
+
+    private func checkExistingServer(completion: @escaping (Bool) -> Void) {
+        var request = URLRequest(url: URL(string: "http://localhost:\(port)/api/health")!)
+        request.httpMethod = "GET"
+        request.timeoutInterval = 1
+        URLSession.shared.dataTask(with: request) { _, response, _ in
+            DispatchQueue.main.async {
+                let ok = (response as? HTTPURLResponse)?.statusCode == 200
+                completion(ok)
+            }
+        }.resume()
+    }
+
+    private func launchServer() {
         var foundPath: String?
         var searchPaths: [String] = []
 

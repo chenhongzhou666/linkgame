@@ -48,6 +48,19 @@ struct ContentView: View {
                             .fill(.ultraThinMaterial)
                     )
                     .help("显示浮动桌面挂件")
+                    Button(action: {}) {
+                        Label("\(user.trophyCount)", systemImage: "trophy.fill")
+                            .font(.title3.bold())
+                            .foregroundStyle(.orange)
+                    }
+                    .buttonStyle(.plain)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 8)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.ultraThinMaterial)
+                    )
+                    .help("对战奖杯")
                     Button(action: { showCurrencyLogs = true }) {
                         Label("\(user.coins)", systemImage: "dollarsign.circle.fill")
                             .font(.title3.bold())
@@ -167,7 +180,11 @@ struct ContentView: View {
             })
         }
         .sheet(item: $selectedGameMode) { mode in
-            GameView(mode: mode).environmentObject(auth)
+            if mode.isBattle {
+                BattleGameView().environmentObject(auth)
+            } else {
+                GameView(mode: mode).environmentObject(auth)
+            }
         }
         .sheet(item: $showLeaderboardFor) { levelID in
             LeaderboardView(levelID: levelID).frame(minWidth: 500, minHeight: 400)
@@ -237,7 +254,7 @@ struct ContentView: View {
                   let json = try? JSONSerialization.jsonObject(with: respData) as? [String: String],
                   let newAvatar = json["avatar"] else { return }
             DispatchQueue.main.async {
-                currentAuth.currentUser = User(id: currentAuth.currentUser?.id ?? 0, username: username, nickname: nick, email: email, avatar: newAvatar, currency: currentAuth.currentUser?.currency, dailyUnlocked: currentAuth.currentUser?.dailyUnlocked, createdAt: createdAt)
+                currentAuth.currentUser = User(id: currentAuth.currentUser?.id ?? 0, username: username, nickname: nick, email: email, avatar: newAvatar, currency: currentAuth.currentUser?.currency, dailyUnlocked: currentAuth.currentUser?.dailyUnlocked, trophies: currentAuth.currentUser?.trophies, createdAt: createdAt)
                 AccountManager.shared.updateAccountInfo(username: username, avatar: newAvatar, nickname: nick)
             }
         }.resume()

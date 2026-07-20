@@ -8,6 +8,7 @@ struct User: Codable {
     let avatar: String?
     let currency: Int64?
     let dailyUnlocked: Bool?
+    let trophies: Int?
     let createdAt: String?
 
     var displayName: String {
@@ -17,9 +18,10 @@ struct User: Codable {
 
     var coins: Int64 { currency ?? 0 }
     var isDailyUnlocked: Bool { dailyUnlocked ?? false }
+    var trophyCount: Int { trophies ?? 0 }
 
     enum CodingKeys: String, CodingKey {
-        case id, username, nickname, email, avatar, currency
+        case id, username, nickname, email, avatar, currency, trophies
         case dailyUnlocked = "daily_unlocked"
         case createdAt = "created_at"
     }

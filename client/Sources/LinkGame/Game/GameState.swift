@@ -157,6 +157,8 @@ class GameState: ObservableObject {
                                 self.score += self.remainingTime * 20
                             case .stepLimited:
                                 self.score += self.remainingSteps * 15
+                            case .battle:
+                                break
                             }
                             self.isVictory = true
                             self.timer?.invalidate()

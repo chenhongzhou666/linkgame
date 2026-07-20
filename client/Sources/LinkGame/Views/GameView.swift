@@ -286,6 +286,8 @@ struct GameView: View {
             return "剩余时间加分：+\(game.remainingTime * 20)"
         case .stepLimited:
             return "剩余步数加分：+\(game.remainingSteps * 15)"
+        case .battle:
+            return ""
         }
     }
 
@@ -304,7 +306,7 @@ struct GameView: View {
                 timeSeconds: game.timeElapsed
             ) {
                 if let currency = resp.currency, var user = auth.currentUser {
-                    user = User(id: user.id, username: user.username, nickname: user.nickname, email: user.email, avatar: user.avatar, currency: currency, dailyUnlocked: user.dailyUnlocked, createdAt: user.createdAt)
+                    user = User(id: user.id, username: user.username, nickname: user.nickname, email: user.email, avatar: user.avatar, currency: currency, dailyUnlocked: user.dailyUnlocked, trophies: user.trophies, createdAt: user.createdAt)
                     auth.currentUser = user
                 }
             }

@@ -34,6 +34,9 @@ var migration7SQL string
 //go:embed migrations/008_currency_log.sql
 var migration8SQL string
 
+//go:embed migrations/010_battle_trophies.sql
+var migration10SQL string
+
 var DB *sql.DB
 
 func Init(dbPath string) error {
@@ -68,6 +71,8 @@ func Init(dbPath string) error {
 	DB.Exec(migration7SQL)
 	// migration 008 — currency transaction logs
 	DB.Exec(migration8SQL)
+	// migration 010 — trophies for battle system
+	DB.Exec(migration10SQL)
 
 	return nil
 }
